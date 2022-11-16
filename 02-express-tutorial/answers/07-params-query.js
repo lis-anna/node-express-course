@@ -52,7 +52,3 @@ app.get('/api/v1/query', (req, res) => {
   return res.status(200).json(sortedProduct);
   //res.send('hello world');
 });
-
-app.listen(5000, () => {
-  console.log('server is listening on port 5000...');
-});
