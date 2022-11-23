@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const logger = require('./practice-middleware');
 
 app.use(express.static('./new-public'));
+app.use(logger);
 
 app.get('/sample', (req, res) => {
   res.status(200).send('This is working');
@@ -19,3 +21,5 @@ app.all('/*', (req, res) => {
 app.listen(3000, () => {
   console.log('Listening to port 3000...');
 });
+
+module.exports = app;
