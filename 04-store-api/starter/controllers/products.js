@@ -48,14 +48,13 @@ const getAllProducts = async (req, res) => {
     });
   }
   console.log(queryObject);
-  let result = await Product;
-  // console.log(result);
+  let result = Product.find(queryObject);
+  // sort
   if (sort) {
-    const sortList = sort.split(',').join(', ');
-    result = result.find(queryObject).sort(sortList);
-    console.log(sortList);
+    const sortList = sort.split(',').join(' ');
+    result = result.sort(sortList);
   } else {
-    result = result.find(queryObject).sort('createAt');
+    result = result.sort('createdAt');
   }
 
   if (fields) {
